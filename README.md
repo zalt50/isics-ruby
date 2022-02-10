@@ -21,8 +21,8 @@ Build as follows:
 
 ``` sh
 bundle install
-bundle exec rake build
-gem install pkg/isics-0.1.0.gem -- --isics-src=[the absolute path to aekn_v1_1.tar.gz]
+bundle exec rake compile -- --isics-src=[the path to aekn_v1_1.tar.gz]
+bundle exec rake install
 ```
 
 ## Usage
