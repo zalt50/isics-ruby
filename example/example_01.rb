@@ -1,19 +1,18 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'pathname'
 require 'isics'
+include Isics
 
-# new instance of type ISICSoo
-calculation = Isics::ISICSoo.new
+# new instance of ISICSoo
+calculation = ISICSoo.new
 
 # n=50 also by default
-calculation.n = 49
+calculation.n = 50
 
 # load non-default binding energies
-energy_gw =
-  Pathname.new(__FILE__).realpath.parent.parent +
-  'ext' + 'isics' + 'energy_GW.dat'
-calculation.load_data('energy', energy_gw.to_s)
+energy_gw = File.expand_path('../ext/isics/energy_GW.dat', __dir__)
+calculation.load_data('energy', energy_gw)
 
 # set the projectile and target materials
 calculation.projectile_z = 1
@@ -47,12 +46,12 @@ calculation.run
 # get the data for total L shell xsections for all energies
 xs = calculation.l_shell_data_range
 
-# get the vector of energies
+# get the array of energies
 en = calculation.energies
 
 # now print out the data that interests me
 puts '#energy[MeV]    PWBA[barn]        ECPSSR[barn]'
 en.each_with_index do |e, i|
   xx = xs[i]
-  puts sprintf('%8g         %8e       %8e', e, xx[0], xx[2])
+  puts format('%8g         %8e       %8e', e, xx[0], xx[2])
 end

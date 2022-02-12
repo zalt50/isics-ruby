@@ -1,31 +1,28 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'pathname'
 require 'isics'
+include Isics
 
-# data_dir = Pathname.new(__FILE__).realpath.parent.parent + 'data'
-# ENV['ISICS_DATA'] = data_dir.to_s
-
-# new instance of type ISICSoo
-calculation = Isics::ISICSoo.new
+# new instance of ISICSoo
+calculation = ISICSoo.new
 
 # load configuration file test.cfg
-config =
-  Pathname.new(__FILE__).realpath.parent.parent +
-  'ext' + 'isics' + 'example' + 'test.cfg'
-calculation.read_config(config.to_s)
+config = File.expand_path('../ext/isics/example/test.cfg', __dir__)
+calculation.read_config(config)
 
 # be quiet
-calculation.verbosity = 2
+calculation.verbosity = 0
 
 # run ECPSSR
 calculation.run_ecpssr
 
 # get the xsection of L1+L2+L3
-xs = (1..3).reduce(0.0) { |a, e| a + calculation.shell_ecpssr(e) }
+xs = (1..3).map { |i| calculation.shell_ecpssr(i) }.sum
 
-# get the vector of energies
+# get the array of energies
 en = calculation.energies
 
+# print the results
 puts "energy: #{en[0]} MeV"
 puts "ecpssr: #{xs} barn"

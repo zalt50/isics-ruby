@@ -29,10 +29,13 @@ bundle exec rake install
 
 ``` ruby
 reqire 'isics'
-calculation = Isics::ISICSoo.new
+include Isics
 
-# load config
-calculation.read_config(file_name)
+# new instance of ISICSoo
+calculation = ISICSoo.new
+
+# load configuration file test.cfg
+calculation.read_config('ext/isics/example/test.cfg')
 
 # be quiet
 calculation.verbosity = 0
@@ -40,8 +43,15 @@ calculation.verbosity = 0
 # run ECPSSR
 calculation.run_ecpssr
 
-# get results
-cs = (1..3).reduce(0.0) { |a, e| a + calculation.shell_ecpssr(e) }
+# get the xsection of L1+L2+L3
+xs = (1..3).map { |i| calculation.shell_ecpssr(i) }.sum
+
+# get the array of energies
+en = calclation.energies
+
+# print the results
+puts "energy: #{en[0]} MeV"
+puts "ecpssr: #{xs} barn"
 ```
 
 ## References
