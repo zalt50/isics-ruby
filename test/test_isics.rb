@@ -1,5 +1,5 @@
-require 'minitest_helper'
-require 'pathname'
+require "test_helper"
+require "pathname"
 
 class TestIsics < MiniTest::Unit::TestCase
   def setup
@@ -7,7 +7,7 @@ class TestIsics < MiniTest::Unit::TestCase
     # load configuration file test.cfg
     config =
       Pathname.new(__FILE__).realpath.parent.parent +
-      'ext' + 'isics' + 'example' + 'test.cfg'
+      "ext" + "isics" + "example" + "test.cfg"
     @calculation.read_config(config.to_s)
 
     # be quiet
