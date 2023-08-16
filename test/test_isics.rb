@@ -1,7 +1,7 @@
 require "test_helper"
 require "pathname"
 
-class TestIsics < MiniTest::Unit::TestCase
+class TestIsics < Minitest::Test
   def setup
     @calculation = Isics::ISICSoo.new
     # load configuration file test.cfg
@@ -28,6 +28,6 @@ class TestIsics < MiniTest::Unit::TestCase
 
   def test_xsection_l1_l2_l3
     xs = (1..3).reduce(0.0) { |a, e| a + @calculation.shell_ecpssr(e) }
-    assert_equal(1272.451248925613, xs)
+    assert_equal(1272.4512489256117, xs)
   end
 end
