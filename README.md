@@ -1,8 +1,6 @@
 # ISICS Ruby
 
-A [Ruby](https://www.ruby-lang.org) interface to
-[ISICSoo](https://doi.org/10.1016/j.cpc.2011.10.004) to calculate
-ionization cross sections from ECPSSR and PWBA theory
+A [Ruby](https://www.ruby-lang.org) interface to [ISICSoo](https://doi.org/10.1016/j.cpc.2011.10.004) to calculate ionization cross sections from ECPSSR and PWBA theory
 
 ## Requirements
 
@@ -11,11 +9,7 @@ ionization cross sections from ECPSSR and PWBA theory
 
 ## Installation
 
-Download an [ISICSoo](https://doi.org/10.1016/j.cpc.2011.10.004) source
-archive (e.g. aekn_v1_1.tar.gz) from [Computer Physics Communications
-Program Library](http://cpc.cs.qub.ac.uk/summaries/AEKN_v1_1.html) after
-accepting [Standard CPC
-licence](http://cpc.cs.qub.ac.uk/licence/licence.html) term.
+Download an [ISICSoo](https://doi.org/10.1016/j.cpc.2011.10.004) source archive (e.g. aekn_v1_1.tar.gz) from [Computer Physics Communications Program Library](http://cpc.cs.qub.ac.uk/summaries/AEKN_v1_1.html) after accepting [CPC licence](https://www.elsevier.com/about/policies/open-access-licenses/elsevier-user-license/cpc-license) term.
 
 Build as follows:
 
@@ -56,8 +50,5 @@ puts "ecpssr: #{xs} barn"
 
 ## References
 
-- [ISICSoo: A class for the calculation of ionization cross sections
-  from ECPSSR and PWBA
-  theory](https://doi.org/10.1016/j.cpc.2011.10.004), Computer Physics
-  Communications, Volume 183, Issue 9, 2012, pp. 398-404
-- [Standard CPC licence](http://cpc.cs.qub.ac.uk/licence/licence.html)
+- [ISICSoo: A class for the calculation of ionization cross sections from ECPSSR and PWBA theory](https://doi.org/10.1016/j.cpc.2011.10.004), Computer Physics Communications, Volume 183, Issue 9, 2012, pp. 398-404
+- [CPC licence](https://www.elsevier.com/about/policies/open-access-licenses/elsevier-user-license/cpc-license)
