@@ -36,12 +36,4 @@ Gem::Specification.new do |spec|
   spec.files.push(*Dir.glob("ext/isics/*.dat"))
 
   spec.extensions = %w[ext/isics/extconf.rb]
-
-  spec.add_development_dependency "awesome_print"
-  spec.add_development_dependency "bundler"
-  spec.add_development_dependency "minitest"
-  spec.add_development_dependency "minitest-reporters"
-  spec.add_development_dependency "rake-compiler"
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "tapp"
 end
